@@ -1,56 +1,17 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
-      <div class="text-xs-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline"
-          >Welcome to the Vuetify + Nuxt.js template</v-card-title
-        >
+  <v-layout justify-center row warp>
+    <v-flex xs12 sm8 md8 xl8>
+      <v-card v-for="item of lists" :key="item.id" class="mb-2" ripple hover>
+        <v-card-title class="headline">{{ item.title }}</v-card-title>
         <v-card-text>
-          <p>
-            Vuetify is a progressive Material Design component framework for
-            Vue.js. It was designed to empower developers to create amazing
-            applications.
-          </p>
-          <p>
-            For more information on Vuetify, check out the
-            <a href="https://vuetifyjs.com" target="_blank">documentation</a>.
-          </p>
-          <p>
-            If you have questions, please join the official
-            <a href="https://chat.vuetifyjs.com/" target="_blank" title="chat"
-              >discord</a
-            >.
-          </p>
-          <p>
-            Find a bug? Report it on the github
-            <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              title="contribute"
-              >issue board</a
-            >.
-          </p>
-          <p>
-            Thank you for developing with Vuetify and I look forward to bringing
-            more exciting features in the future.
-          </p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3" />
-          <a href="https://nuxtjs.org/" target="_blank">Nuxt Documentation</a>
-          <br />
-          <a href="https://github.com/nuxt/nuxt.js" target="_blank"
-            >Nuxt GitHub</a
-          >
+          <p>{{ item.summary }}</p>
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" flat nuxt to="/inspire">Continue</v-btn>
+          <span class="grey--text text--darken-1 mr-4">{{
+            item.release_time
+          }}</span>
+          <span class="grey--text text--darken-1 mr-2">{{ item.author }}</span>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -58,13 +19,26 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
+  data() {
+    return {
+      lists: [
+        {
+          id: 1,
+          title: 'this is title',
+          summary: 'this is a page for test title show',
+          author: 'buer',
+          release_time: '2019-04-04 15:18:00'
+        },
+        {
+          id: 2,
+          title: 'this is title 222',
+          summary: 'this is a page for test title show 222',
+          author: 'buer 222',
+          release_time: '2019-04-04 15:18:00'
+        }
+      ]
+    }
   }
 }
 </script>

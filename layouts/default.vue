@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+    <!-- 左边栏菜单 -->
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -25,8 +26,10 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar :clipped-left="clipped" fixed app>
+      <!-- 左边栏菜单开关 -->
       <v-toolbar-side-icon @click="drawer = !drawer" />
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
+      <v-toolbar-title>note app</v-toolbar-title>
+      <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>{{ `chevron_${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
       <v-btn icon @click.stop="clipped = !clipped">
@@ -36,17 +39,19 @@
         <v-icon>remove</v-icon>
       </v-btn>
       <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+      <v-spacer /> -->
+      <!-- 右边栏菜单开关 -->
+      <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>menu</v-icon>
-      </v-btn>
+      </v-btn> -->
     </v-toolbar>
     <v-content>
       <v-container>
         <nuxt />
       </v-container>
     </v-content>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
+    <!-- 右边栏菜单 -->
+    <!-- <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
       <v-list>
         <v-list-tile @click.native="right = !right">
           <v-list-tile-action>
@@ -55,9 +60,9 @@
           <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
         </v-list-tile>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
     <v-footer :fixed="fixed" app>
-      <span>&copy; 2019</span>
+      <span class="px-4">&copy; 2019 Buer</span>
     </v-footer>
   </v-app>
 </template>
@@ -72,12 +77,12 @@ export default {
       items: [
         {
           icon: 'apps',
-          title: 'Welcome',
+          title: 'Home',
           to: '/'
         },
         {
           icon: 'bubble_chart',
-          title: 'Inspire',
+          title: 'Write',
           to: '/inspire'
         }
       ],
