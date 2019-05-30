@@ -1,7 +1,14 @@
 <template>
   <v-layout justify-center row warp>
     <v-flex xs12 sm8 md8 xl8>
-      <v-card v-for="item of lists" :key="item.id" class="mb-2" ripple hover>
+      <v-card
+        v-for="item of lists"
+        :key="item.id"
+        class="mb-2"
+        ripple
+        hover
+        :to="`/detail/${item.id}`"
+      >
         <v-card-title class="headline">{{ item.title }}</v-card-title>
         <v-card-text>
           <p>{{ item.summary }}</p>
